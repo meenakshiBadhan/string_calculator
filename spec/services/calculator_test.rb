@@ -39,6 +39,14 @@ RSpec.describe Calculator, type: :service do
     it 'returns sum for numbers separated by multiple delimiters' do
       expect(calculator.add("[4/5;\n7,8")).to eq(24)
     end
+    
+    it 'raises error for a single negative number' do
+      expect { calculator.add("2,-4,7") }.to raise_error("negative numbers not allowed -4")
+    end
+    
+    it 'raises error for addition with multiple negative numbers' do
+      expect { calculator.add("2,-4,-7,-3") }.to raise_error("negative numbers not allowed -4,-7,-3")
+    end
 
   end
 end
