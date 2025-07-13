@@ -15,5 +15,9 @@ RSpec.describe Calculator, type: :service do
     it 'returns sum for two comma-separated numbers' do
       expect(calculator.add("2,4")).to eq(6)
     end
+    
+    it 'returns sum for multiple comma-separated numbers' do
+      expect(calculator.add("1,2,3,4,5,6,7,8")).to eq(36)
+    end
   end
 end
