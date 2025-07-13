@@ -4,7 +4,7 @@ class Calculator
     return 0 if numbers.empty?
 
     # Split using commas and convert to integers
-    nums = numbers.split(/[,]/).map(&:strip).map(&:to_i)
+    nums = numbers.split(/[,\n]/).map(&:strip).map(&:to_i)
 
     # Return sum
     nums.sum

@@ -19,5 +19,17 @@ RSpec.describe Calculator, type: :service do
     it 'returns sum for multiple comma-separated numbers' do
       expect(calculator.add("1,2,3,4,5,6,7,8")).to eq(36)
     end
+
+    it 'returns sum for numbers separated by newline character' do
+      expect(calculator.add("1\n2")).to eq(3)
+    end
+
+    it 'returns sum for numbers separated by multiple newline characters' do
+      expect(calculator.add("1\n2\n5\n6")).to eq(14)
+    end
+    
+    it 'returns sum for numbers separated by multiple newline characters' do
+      expect(calculator.add("1\n2,5\n8")).to eq(16)
+    end
   end
 end
