@@ -28,8 +28,17 @@ RSpec.describe Calculator, type: :service do
       expect(calculator.add("1\n2\n5\n6")).to eq(14)
     end
     
-    it 'returns sum for numbers separated by multiple newline characters' do
+    it 'returns sum for numbers separated by multiple delimiters' do
       expect(calculator.add("1\n2,5\n8")).to eq(16)
     end
+    
+    it 'returns sum for numbers separated by multiple delimiters' do
+      expect(calculator.add("//;\n1;2")).to eq(3)
+    end
+
+    it 'returns sum for numbers separated by multiple delimiters' do
+      expect(calculator.add("[4/5;\n7,8")).to eq(24)
+    end
+
   end
 end
