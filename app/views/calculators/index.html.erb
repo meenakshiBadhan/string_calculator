@@ -1,0 +1,18 @@
+<div class="mx-auto max-w-md mt-8 p-6 bg-white">
+  <h1 class="text-[20px] font-bold text-center mb-6">String Calculator</h1>
+
+  <h2 class="text-[16px] mb-6">Enter Numbers</h2>
+  <%= form_with url: calculators_path, method: :post, local: true, data: { turbo: false } do |form| %>
+    <div>
+      <%= form.text_area :numbers, rows: 4, placeholder: "e.g., 1,2,3 or 1/2;3", class: "w-full px-2 py-2 border" %>
+    </div>
+    
+		<% if @error %>
+    	<h2 class="text-[16px] mb-6 text-red-600"><strong>Error: </strong><%= @error %></h2>
+		<% end %>
+
+    <div>
+      <%= form.submit "Calculate", class: "w-full bg-blue-500 hover:bg-blue-600 text-white text-[16px] py-2 px-4" %>
+    </div>
+  <% end %>
+</div>
